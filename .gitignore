@@ -1,0 +1,6 @@
+proguard-sbt.txt
+target/
+build/
+.gradle/
+.idea/
+gradle/

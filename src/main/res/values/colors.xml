@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <color name="highlight">#000000</color>
+    <color name="highlight_dark">#000000</color>
+    <color name="main">#505050</color>
+    <color name="primary">#FFFFFF</color>
+    <color name="secondary">#AAAAAA</color>
+    <color name="red">#E05A5A</color>
+
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="hamburger_padding">10dp</dimen>
+    <dimen name="textSize1">12sp</dimen>
+    <dimen name="textSize2">15sp</dimen>
+    <dimen name="textSize3">11sp</dimen>
+    <dimen name="textSize4">25sp</dimen>
+</resources>

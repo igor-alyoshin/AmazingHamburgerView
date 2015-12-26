@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <string name="name">Amazing Hamburger View</string>
+    <string name="home">Home</string>
+    <string name="explore">Explore</string>
+    <string name="messages">Messages</string>
+    <string name="notifications">Notifications</string>
+    <string name="connecting">Connecting</string>
+    <string name="connections">Connections</string>
+
+</resources>
