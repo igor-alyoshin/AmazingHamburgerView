@@ -17,7 +17,6 @@ class SecondActivity extends Activity {
   }
 
   def setHamburger() {
-    import com.example.AmazingHamburgerView
     import com.example.igor.amazingview.{AmazingAbstractController, AmazingHamburgerView}
     import rx.functions.Action1
 

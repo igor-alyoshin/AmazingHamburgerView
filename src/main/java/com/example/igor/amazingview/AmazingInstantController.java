@@ -1,4 +1,4 @@
-package com.example.amazingview;
+package com.example.igor.amazingview;
 
 import android.graphics.drawable.TransitionDrawable;
 import android.view.View;

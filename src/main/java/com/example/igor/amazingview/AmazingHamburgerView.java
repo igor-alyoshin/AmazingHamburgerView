@@ -16,11 +16,7 @@ import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import com.example.igor.R;
-import com.example.igor.amazingview.AmazingViewHolder;
 import rx.functions.Action1;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class AmazingHamburgerView extends FrameLayout {
 
@@ -116,51 +112,6 @@ public class AmazingHamburgerView extends FrameLayout {
 
     TabsWrapper getTabsWrapper() {
         return tabsWrapper;
-    }
-
-    public class TabsWrapper {
-
-        private final View mainTab;
-        private final List<AmazingViewHolder> bottomTabs;
-        private final List<AmazingViewHolder> topTabs;
-
-        protected TabsWrapper(View mainTab) {
-            this.mainTab = mainTab;
-            this.bottomTabs = new ArrayList<>();
-            this.topTabs = new ArrayList<>();
-        }
-
-        public TabsWrapper addBottomTab(AmazingViewHolder holder) {
-            createTab(holder);
-            bottomTabs.add(holder);
-            return this;
-        }
-
-        public TabsWrapper addTopTab(AmazingViewHolder holder) {
-            createTab(holder);
-            topTabs.add(holder);
-            return this;
-        }
-
-        private void createTab(AmazingViewHolder holder) {
-            FrameLayout.LayoutParams fp = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            fp.gravity = Gravity.BOTTOM;
-            holder.getItemView().setLayoutParams(fp);
-            holder.getItemView().setVisibility(INVISIBLE);
-            addView(holder.getItemView());
-        }
-
-        List<AmazingViewHolder> getBottomTabs() {
-            return bottomTabs;
-        }
-
-        List<AmazingViewHolder> getTopTabs() {
-            return topTabs;
-        }
-
-        View getMainTab() {
-            return mainTab;
-        }
     }
 
     @Override

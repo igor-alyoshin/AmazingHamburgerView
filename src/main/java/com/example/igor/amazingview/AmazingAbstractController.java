@@ -10,7 +10,7 @@ import java.util.List;
 public abstract class AmazingAbstractController {
 
     protected final AmazingHamburgerView amazingHamburgerView;
-    protected final AmazingHamburgerView.TabsWrapper tabsWrapper;
+    protected final TabsWrapper tabsWrapper;
 
     public AmazingAbstractController(AmazingHamburgerView amazingHamburgerView) {
         this.amazingHamburgerView = amazingHamburgerView;
@@ -27,11 +27,11 @@ public abstract class AmazingAbstractController {
 
     public void hideAll() {
         for (AmazingViewHolder h : tabsWrapper.getTopTabs()) {
-            hideItem(h.getItemView(), 0, 0);
+            hideItem(h.itemView, 0, 0);
         }
 
         for (AmazingViewHolder h : tabsWrapper.getBottomTabs()) {
-            hideItem(h.getItemView(), 0, 0);
+            hideItem(h.itemView, 0, 0);
         }
     }
 
@@ -43,11 +43,11 @@ public abstract class AmazingAbstractController {
 
         for (AmazingViewHolder h : tabsWrapper.getTopTabs()) {
             Point position = topPositions.get(tabsWrapper.getTopTabs().indexOf(h));
-            showItem(h.getItemView(), position.x, position.y);
+            showItem(h.itemView, position.x, position.y);
         }
         for (AmazingViewHolder h : tabsWrapper.getBottomTabs()) {
             Point position = bottomPositions.get(tabsWrapper.getBottomTabs().indexOf(h));
-            showItem(h.getItemView(), position.x, position.y);
+            showItem(h.itemView, position.x, position.y);
         }
     }
 
@@ -56,7 +56,7 @@ public abstract class AmazingAbstractController {
         int startY = y;
         int startX = x;
         while (copyViews.size() > 0) {
-            View item = copyViews.get(0).getItemView();
+            View item = copyViews.get(0).itemView;
             if (x + item.getWidth() <= getContainerWidth()) {
                 positions.add(new Point(x, startY));
                 x += item.getWidth() + amazingHamburgerView.getHorizontalSpacing();
