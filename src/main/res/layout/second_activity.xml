@@ -12,7 +12,7 @@
             android:textColor="?android:attr/textColor"
             tools:text="test"/>
 
-    <com.example.amazingview.AmazingHamburgerView
+    <com.example.igor.amazingview.AmazingHamburgerView
             android:id="@+id/hamburger"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

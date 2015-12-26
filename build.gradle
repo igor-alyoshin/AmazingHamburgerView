@@ -62,6 +62,7 @@ dependencies {
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'io.reactivex:rxjava-joins:0.22.0'
     compile 'io.reactivex:rxjava:1.0.17'
+    compile 'io.reactivex:rxandroid:1.1.0'
     compile 'io.reactivex:rxscala_2.11:0.25.1'
     // to break 64k limit
     compile "org.scalaz:scalaz-core_2.11:7.1.0"

@@ -17,7 +17,8 @@ class SecondActivity extends Activity {
   }
 
   def setHamburger() {
-    import com.example.amazingview.{AmazingAbstractController, AmazingHamburgerView}
+    import com.example.AmazingHamburgerView
+    import com.example.igor.amazingview.{AmazingAbstractController, AmazingHamburgerView}
     import rx.functions.Action1
 
     val hamburger = findViewById(R.id.hamburger).asInstanceOf[AmazingHamburgerView]

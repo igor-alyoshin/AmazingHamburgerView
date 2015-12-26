@@ -7,7 +7,7 @@ class FirstActivity extends Activity {
   import android.content.Context
   import android.os.Bundle
   import android.view.LayoutInflater
-  import com.example.amazingview.AmazingHamburgerView
+  import com.example.igor.amazingview.AmazingHamburgerView
 
   override def onCreate(savedInstanceState: Bundle): Unit = {
     super.onCreate(savedInstanceState)
@@ -16,10 +16,16 @@ class FirstActivity extends Activity {
   }
 
   def setHamburger() {
-    import android.view.View
-    import com.example.{ImageWithTextViewHolder, ImageWithoutTextViewHolder}
+    import java.util.concurrent.TimeUnit
+
+    import com.example.igor.viewholders.{CounterWithTextViewHolder, ImageWithTextViewHolder, ImageWithoutTextViewHolder}
+    import rx.android.schedulers.AndroidSchedulers
     import rx.functions.Action1
+    import rx.lang.scala.schedulers.NewThreadScheduler
     import rx.lang.scala.subjects.PublishSubject
+    import rx.lang.scala.{JavaConversions, Observable}
+
+    import scala.concurrent.duration.Duration
 
     val hamburger = findViewById(R.id.hamburger).asInstanceOf[AmazingHamburgerView]
     val notificationsSubject = PublishSubject.apply[Integer]()
@@ -52,14 +58,24 @@ class FirstActivity extends Activity {
 
     val avatar = new ImageWithoutTextViewHolder(inflater.inflate(R.layout.image_without_text, null, false))
       .setImageResource(R.drawable.user_ava)
-    val v : View = inflater.inflate(R.layout.counter_with_text, null, false)
+
     val connecting = new CounterWithTextViewHolder(inflater.inflate(R.layout.counter_with_text, null, false))
       .setTextResource(R.string.connecting)
-      .setCounter(18)
+      .setCounter(0)
+
+    Observable.interval(Duration.apply(1, TimeUnit.SECONDS))
+      .subscribeOn(NewThreadScheduler())
+      .observeOn(JavaConversions.javaSchedulerToScalaScheduler(AndroidSchedulers.mainThread()))
+      .subscribe(connecting.counterChangeAction)
 
     val connections = new CounterWithTextViewHolder(inflater.inflate(R.layout.counter_with_text, null, false))
       .setTextResource(R.string.connections)
-      .setCounter(146)
+      .setCounter(0)
+
+    Observable.interval(Duration.apply(1, TimeUnit.SECONDS))
+      .subscribeOn(NewThreadScheduler())
+      .observeOn(JavaConversions.javaSchedulerToScalaScheduler(AndroidSchedulers.mainThread()))
+      .subscribe(connections.counterChangeAction)
 
     hamburger.addMainTab(R.drawable.menu_btn_def)
       .addTopTab(home)
